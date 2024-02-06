@@ -63,6 +63,8 @@ shader_t shader_init(const char* vert_shader_path, const char* frag_shader_path)
 
     new_shader.time_unf = glGetUniformLocation(new_shader.ptr, "a_time");
     new_shader.camera_position_unf = glGetUniformLocation(new_shader.ptr, "camera.position");
+    new_shader.camera_direction_unf = glGetUniformLocation(new_shader.ptr, "camera.direction");
+    new_shader.camera_mouse_unf = glGetUniformLocation(new_shader.ptr, "camera.mouse");
 
     glDeleteShader(vert_shader);
     glDeleteShader(frag_shader);
@@ -78,6 +80,11 @@ void shader_delete(shader_t shader_program)
 void shader_set_uniform_float(unsigned int uniform, float value)
 {
     glUniform1f(uniform, value);
+}
+
+void shader_set_uniform_vec2(unsigned int uniform, vec2_t value)
+{
+    glUniform2f(uniform, value[X], value[Y]);
 }
 
 void shader_set_uniform_vec3(unsigned int uniform, vec3_t value)

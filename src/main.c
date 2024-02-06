@@ -37,8 +37,12 @@ int main(void)
 
         if(window.delta_time >= window.fps)
         {
+            camera_mouse_move(&window.camera, window.ptr);
             shader_set_uniform_float(shader.time_unf, (float)glfwGetTime());
             shader_set_uniform_vec3(shader.camera_position_unf, window.camera.position);
+            shader_set_uniform_vec3(shader.camera_direction_unf, window.camera.direction);
+            shader_set_uniform_vec2(shader.camera_mouse_unf, window.camera.prev_mouse);
+
             glDrawArrays(GL_TRIANGLES, 0, 6);
 
             glfwSwapBuffers(window.ptr);

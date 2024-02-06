@@ -2,7 +2,7 @@
 
 Trying out ray marching for the first time.
 
-As of now this program can only draw a single sphere. Camera controls are limited to moving with no rotation whatsoever
+As of now this program can only draw a single sphere. Camera controls are limited to moving with no rotation whatsoever(edit: now features broken rotation)
 
 Todo:
 

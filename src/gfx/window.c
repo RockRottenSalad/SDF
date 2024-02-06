@@ -24,7 +24,10 @@ window_t window_init(const char* win_title, ivec2_t resolution, double fps)
     new_window.delta_a = new_window.delta_b = new_window.delta_time = 0.0;
     new_window.fps = 1.0 / fps;
 
-    new_window.camera = camera_init((vec3_t){0.0, 0.0, 3.0});
+    new_window.camera = camera_init((vec3_t){0.0, 0.0, -3.0});
+
+//    glfwSetCursorPosCallback(new_window.ptr, window_mouse_callback);
+    glfwSetInputMode(new_window.ptr, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
     return new_window;
 }
@@ -49,3 +52,4 @@ void window_event(window_t* restrict window)
         camera_move_left(&window->camera, window->delta_time);
 
 }
+

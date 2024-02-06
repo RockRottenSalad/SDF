@@ -15,6 +15,7 @@ typedef struct
     double delta_a, delta_b, delta_time;
     double fps;
 
+    // Previous mouse coordinates
     camera_t camera;
 } window_t;
 
